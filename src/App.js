@@ -1,11 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import logoPink from "./logoPink.svg";
+import "./App.css";
+
+const Logo = () => <img id="logo" src={logo} className="App-logo" alt="logo" />;
 
 function App() {
+  const handleOnClick = (svg) => {
+    const logoImg = document.getElementById("logo");
+    logoImg.src = svg;
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <Logo />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -17,6 +25,9 @@ function App() {
         >
           Learn React
         </a>
+        <br />
+        <button onClick={() => handleOnClick(logo)}>blue</button>
+        <button onClick={() => handleOnClick(logoPink)}>pink</button>
       </header>
     </div>
   );
